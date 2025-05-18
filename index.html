@@ -2,26 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Work In Progress - Poco X5 Pro 5G</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Work In Progress | thepriyanshujangid.github.io</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #181a20;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 900px;
+      width: 100%;
+      background: #22242a;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      padding: 40px 30px;
+      gap: 40px;
+    }
+    .content {
+      flex: 1;
+    }
+    .content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5em;
+      color: #ffe600;
+    }
+    .content p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 1.5em;
+    }
+    .device-img {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .device-img img {
+      max-width: 260px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(255,230,0,0.2);
+      border: 3px solid #ffe600;
+      background: #fff;
+    }
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+        padding: 20px 10px;
+        gap: 20px;
+      }
+      .device-img {
+        justify-content: center;
+      }
+      .device-img img {
+        max-width: 180px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <div class="emoji">🚧</div>
-    <h1>Work In Progress</h1>
-    <p>
-      thepriyanshujangid.github.io is getting a makeover.<br>
-      Stay tuned for something awesome!
-    </p>
-    <div class="countdown" id="countdown"></div>
-    <div class="social">
-      <a href="https://github.com/thepriyanshujangid" target="_blank" title="GitHub">🐙</a>
-      <!-- Add more social icons/links as needed -->
+    <div class="content">
+      <h1>🚧 Work In Progress</h1>
+      <p>
+        This site is under construction.<br>
+        Stay tuned for updates and new features!
+      </p>
+      <p>
+        <b>Device Highlight:</b> Poco X5 Pro 5G (Yellow)
+      </p>
+    </div>
+    <div class="device-img">
+      <!-- Replace the src URL below with your own image if you want -->
+      <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x5-pro-5g-1.jpg" alt="Poco X5 Pro 5G Yellow">
     </div>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
 
