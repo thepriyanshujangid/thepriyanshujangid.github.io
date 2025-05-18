@@ -4,129 +4,32 @@
   <meta charset="UTF-8">
   <title>Work In Progress - Poco X5 Pro 5G</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      min-height: 100vh;
-      min-width: 100vw;
-      position: relative;
-      overflow: hidden;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      color: #fff;
-    }
-    /* Blurred bluish/purple background */
-    .bg-blur {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      background: radial-gradient(ellipse at 60% 40%, #6c47ff 0%, #3a2d6d 60%, #1d1932 100%);
-      /* Add some purple/blue glowing blobs */
-    }
-    .bg-blur::before, .bg-blur::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.5;
-      z-index: 1;
-    }
-    .bg-blur::before {
-      width: 500px; height: 500px;
-      left: -150px; top: -120px;
-      background: #00c3ff;
-    }
-    .bg-blur::after {
-      width: 400px; height: 400px;
-      right: -120px; bottom: -100px;
-      background: #ff5edf;
-    }
-    /* Overlay with blur effect */
-    .blur-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(32, 30, 50, 0.5);
-      backdrop-filter: blur(12px);
-      z-index: 2;
-    }
-    .container {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 30px;
-      gap: 40px;
-    }
-    .content {
-      flex: 1;
-    }
-    .content h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5em;
-      color: #ffe600;
-      text-shadow: 0 2px 16px #1d1932;
-    }
-    .content p {
-      font-size: 1.2rem;
-      color: #eee;
-      margin-bottom: 1.5em;
-      text-shadow: 0 1px 6px #1d1932;
-    }
-    .device-img {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-    .device-img img {
-      max-width: 260px;
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(255,230,0,0.2);
-      border: 3px solid #ffe600;
-      background: #fff;
-    }
-    .timer {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffe600;
-      margin-bottom: 1.5em;
-      letter-spacing: 2px;
-      text-align: left;
-      text-shadow: 0 1px 6px #1d1932;
-    }
-    @media (max-width: 700px) {
-      .container {
-        flex-direction: column;
-        padding: 20px 10px;
-        gap: 20px;
-      }
-      .device-img {
-        justify-content: center;
-      }
-      .device-img img {
-        max-width: 180px;
-      }
-      .timer {
-        text-align: center;
-      }
-    }
-  </style>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Blurred bluish/purple background -->
   <div class="bg-blur"></div>
   <div class="blur-overlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="logo">AOSP Project</a>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="guides.html">Guides</a></li>
+      <li><a href="downloads.html">Downloads</a></li>
+      <li><a href="support.html">Support Group</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
   <div class="container">
     <div class="content">
       <div class="timer" id="timer"></div>
@@ -143,31 +46,8 @@
       <img src="https://thepriyanshujangid.github.io/images/poco-x5-pro-5g.png" alt="Poco X5 Pro 5G">
     </div>
   </div>
-  <script>
-    // Set your target date and time here (YYYY-MM-DDTHH:MM:SS)
-    const targetDate = new Date("2025-07-01T12:00:00").getTime();
 
-    function updateTimer() {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance < 0) {
-        document.getElementById("timer").innerHTML = "🚀 Launching soon!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("timer").innerHTML =
-        `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
-    }
-
-    updateTimer(); // Initial call
-    setInterval(updateTimer, 1000); // Update every second
-  </script>
+  <!-- Link to external JS -->
+  <script src="script.js"></script>
 </body>
 </html>
-

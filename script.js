@@ -1,21 +1,38 @@
-// Set your launch date here (YYYY-MM-DDTHH:MM:SS)
-const launchDate = new Date('2025-06-01T00:00:00');
-const countdownEl = document.getElementById('countdown');
-
-function updateCountdown() {
-  const now = new Date();
-  const diff = launchDate - now;
-  if (diff > 0) {
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const mins = Math.floor((diff / (1000 * 60)) % 60);
-    const secs = Math.floor((diff / 1000) % 60);
-    countdownEl.textContent = `Launching in ${days}d ${hours}h ${mins}m ${secs}s`;
-  } else {
-    countdownEl.textContent = "We're live!";
+// Navbar mobile toggle
+document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function () {
+      navLinks.classList.toggle('show');
+    });
   }
+});
+
+// Countdown timer
+const targetDate = new Date("2025-07-01T12:00:00").getTime();
+
+function updateTimer() {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+  const timerEl = document.getElementById("timer");
+
+  if (!timerEl) return;
+
+  if (distance < 0) {
+    timerEl.innerHTML = "🚀 Launching soon!";
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  timerEl.innerHTML =
+    `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
 }
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
+updateTimer(); // Initial call
+setInterval(updateTimer, 1000); // Update every second
 
