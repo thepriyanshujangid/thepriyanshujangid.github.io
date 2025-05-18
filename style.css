@@ -155,6 +155,7 @@ body {
   box-shadow: 0 4px 24px rgba(255,230,0,0.2);
   border: 3px solid #ffe600;
   background: #fff;
+  display: none;
 }
 .timer {
   font-size: 1.4rem;
