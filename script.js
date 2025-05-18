@@ -33,6 +33,6 @@ function updateTimer() {
     `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
 }
 
-updateTimer(); // Initial call
-setInterval(updateTimer, 1000); // Update every second
+updateTimer();
+setInterval(updateTimer, 1000);
 
