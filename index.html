@@ -55,6 +55,14 @@
       border: 3px solid #ffe600;
       background: #fff;
     }
+    .timer {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffe600;
+      margin-bottom: 1.5em;
+      letter-spacing: 2px;
+      text-align: left;
+    }
     @media (max-width: 700px) {
       .container {
         flex-direction: column;
@@ -67,12 +75,16 @@
       .device-img img {
         max-width: 180px;
       }
+      .timer {
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="content">
+      <div class="timer" id="timer"></div>
       <h1>🚧 Work In Progress</h1>
       <p>
         This site is under construction.<br>
@@ -83,10 +95,34 @@
       </p>
     </div>
     <div class="device-img">
-      <!-- Replace the src URL below with your own image if you want -->
       <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-x5-pro-5g-1.jpg" alt="Poco X5 Pro 5G Yellow">
     </div>
   </div>
+  <script>
+    // Set your target date and time here (YYYY-MM-DDTHH:MM:SS)
+    const targetDate = new Date("2025-07-01T12:00:00").getTime();
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById("timer").innerHTML = "🚀 Launching soon!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("timer").innerHTML =
+        `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s left`;
+    }
+
+    updateTimer(); // Initial call
+    setInterval(updateTimer, 1000); // Update every second
+  </script>
 </body>
 </html>
 
